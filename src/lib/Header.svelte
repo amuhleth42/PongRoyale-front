@@ -1,6 +1,5 @@
 <script lang=ts>
     import Avatar from "./Avatar.svelte";
-
 </script>
 
 
@@ -11,7 +10,7 @@
     <div class="right">
         <a href="/game">Play Game!</a>
         <a href="/chat">Chat</a>
-        <Avatar size={40}/>
+        <Avatar size={40} src={"./favicon.png"}/>
     </div>
 </div>
 

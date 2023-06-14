@@ -8,7 +8,7 @@
     </div>
     <div class="right">
         <a>Terms & Conditions</a>
-        <Avatar size={30}/>
+        <Avatar size={30} src={"./favicon.png"}/>
     </div>
 </div>
 
