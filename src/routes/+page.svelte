@@ -1,6 +1,9 @@
 <script>
+    import { redirect } from '@sveltejs/kit';
+
 
     import user from '../user';
+    import { onMount } from 'svelte';
 
     $: isLoggedIn = $user == "no_user" ? false : true;
 
@@ -25,6 +28,12 @@
         }
         console.log("is logged in: ", {isLoggedIn});
     }
+
+    /*onMount(() => {
+        if (!isLoggedIn) throw redirect(303, '/login')
+
+    })*/
+
 </script>
 
 <h1>Main page</h1>
