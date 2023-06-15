@@ -1,5 +1,39 @@
 <script>
+
+    import user from '../user';
+
+    $: isLoggedIn = $user == "no_user" ? false : true;
+
+    const logout = () => {
+        user.update(val => val = "no_user");
+    }
+
+    const fakeLogin = () => {
+        let data = {
+            yo: "hey"
+        };
+        //user.update(val => val = {...data});
+        user.set("yo");
+    }
+
+    const toggleLogin = () => {
+        if ($user == "no_user") {
+            fakeLogin();
+        }
+        else {
+            logout();
+        }
+        console.log("is logged in: ", {isLoggedIn});
+    }
 </script>
 
 <h1>Main page</h1>
-<a href="/login">login</a>
+{#if isLoggedIn}
+    <p>You are logged in!</p>
+    <button on:click={logout}>Logout</button>
+{:else}
+    <p>You are not logged in :s</p>
+    <a href="/login">login</a>
+{/if}
+
+<button on:click={toggleLogin}>Toggle log in/out</button>

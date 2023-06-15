@@ -1,5 +1,8 @@
 <script lang=ts>
-    import Avatar from "./Avatar.svelte";
+    import Avatar from "$lib/Avatar.svelte";
+
+    import user from '../user';
+    $: isLoggedIn = $user == "no_user" ? false : true;
 </script>
 
 
@@ -8,9 +11,11 @@
         <a class="logo" href="/">@Pong(Royale)</a>
     </div>
     <div class="right">
+    {#if isLoggedIn}
         <a href="/game">Play Game!</a>
         <a href="/chat">Chat</a>
         <Avatar size={40} src={"./favicon.png"}/>
+    {/if}
     </div>
 </div>
 

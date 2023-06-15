@@ -1,5 +1,5 @@
-export function load() {
+export function load({ params }) {
 	return {
-		post: "hey"
+		username: params.username
 	};
 }
